@@ -44,6 +44,8 @@ When the program has the required and the measured concentrations, it calculates
 
 The function 'balance_nut' is written in C, but the rest of the program is in Python. The C program is compiled to a shared library, which is called by Python in the file 'C_TO_PYTHON' by using the ctypes module. The equivalent Python function is named 'py_c_balance'.
 
+You can find more information about the significance and the result of this program in the seperate report.
+
 How to use the program
 -
 Version 13.2.0 of gcc was used  
