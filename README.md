@@ -44,3 +44,15 @@ When the program has the required and the measured concentrations, it calculates
 
 The function 'balance_nut' is written in C, but the rest of the program is in Python. The C program is compiled to a shared library, which is called by Python in the file 'C_TO_PYTHON' by using the ctypes module. The equivalent Python function is named 'py_c_balance'.
 
+How to use the program
+-
+Version 13.2.0 of gcc was used  
+version 3.11.5 of python was used
+
+You should compile the program 'balance_nut' in your gcc compiler with the following command:  
+$gcc -o balance_win.so -shared -fPIC -O2 balance_nut.c
+This will only work on a windows computer, on other computers the command line is different.  
+After you did this, you can run the python file 'C_TO_PYTHON.py'. When you now open a new terminal, you should be able to run 'MAIN.py'.  
+For different plant species you can make new data files yourself. 
+
+If there are any problems while using this program, please contact me at: wannes.tuytelaars@epfl.ch
