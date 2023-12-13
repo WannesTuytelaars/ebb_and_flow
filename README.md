@@ -20,24 +20,27 @@ How the program works
 -
 First the file with input data is read by the funtion 'required'. Python makes a table with an overview of all the nutrients that need to be added to the nutrient solution. These input files should all only include numbers and should be in this exact form:
 
-required concentration N in mg/L
-required concentration P mg/L
-required concentration K mg/L
-required concentration Ca mg/L
-required concentration Mg mg/L
-required concentration S mg/L
-required concentration Fe mg/L
-required concentration Mn mg/L
-required concentration Cu mg/L
-required concentration Zn mg/L
-required concentration B mg/L
-required concentration Mo mg/L
-length cultivating bench in m
-width cultivating bench in m
-water height in mm
+required concentration N in mg/L   
+required concentration P in mg/L   
+required concentration K in mg/L   
+required concentration Ca in mg/L   
+required concentration Mg in mg/L    
+required concentration S in mg/L   
+required concentration Fe in mg/L   
+required concentration Mn in mg/L   
+required concentration Cu in mg/L   
+required concentration Zn in mg/L   
+required concentration B in mg/L   
+required concentration Mo in mg/L   
+length cultivating bench in m  
+width cultivating bench in m  
+water height in mm  
 
 So in fact, the input file are just 15 values. The code for the function 'required' is in the Python file 'required_nutrients.py'. The output of this function is a list of length 13 with the required nutrient concentrations (in mg/L) and the required water volume (in L).
 
 The second function is named 'measure' and it's coded in the file 'measure_concentrations.py'. The goal of this function is the measure the nutrient concentrations and water volume after every drainage of the cultivating bench. It also prints an alarm statement when there is a big loss of water, signaling a leak. This function requires an input file with the measured concentrations. The concentrations are measured by sensors in the reservoir. I assumed these sensors make an input file 'measured_concentrations.txt'. If the sensors don't make this file, the program will estimate the nutrient concentrations by using the triangular distribution. The output of this function is a list with the same dimensions as the output of the 'required' function, but with smaller values since some nutrients will have been taken up by the plants.
 
 When the program has the required and the measured concentrations, it calculates the masses (in mg) of nutrients and the volume of water (in L) that should be added to the reservoir. This is done by the function 'balance_nut' coded in the file 'balance_nut.c'. These values should be given to nutrient dispensing devices so that they can make the nutrient solution optimal again. These dispensing devices are not included in the code, but you can imagine that they can dispense the exact mass of nutrient calculated by 'balance_nut'.
+
+The function 'balance_nut' is written in C, but the rest of the program is in Python. The C program is compiled to a shared library, which is called by Python in the file 'C_TO_PYTHON' by using the ctypes module. The equivalent Python function is named 'py_c_balance'.
+
