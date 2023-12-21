@@ -55,7 +55,7 @@ How to use the program
 Version 13.2.0 of gcc was used  
 version 3.11.5 of python was used
 
-You should compile the program 'balance_nut' in your gcc compiler with the following command:  
+You should compile the program 'balance_nut.c' in your gcc compiler with the following command:  
 $gcc -o balance_win.so -shared -fPIC -O2 balance_nut.c
 This will only work on a windows computer, on other computers the command line is different.  
 After you did this, you can run the python file 'C_TO_PYTHON.py'. When you now open a new terminal, you should be able to run 'MAIN.py'.  
