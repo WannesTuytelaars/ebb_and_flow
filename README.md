@@ -18,6 +18,8 @@ Project structure
   
 How the program works
 -
+To keep a good overview and improve the readability of the code, every function is written in a different file. All the functions are called up in the file MAIN.py to generate results. This makes it also easier to m  ake changes in the code.
+
 First the file with input data is read by the funtion 'required'. Python makes a table with an overview of all the nutrients that need to be added to the nutrient solution. These input files should all only include numbers and should be in this exact form:
 
 required concentration N in mg/L   
